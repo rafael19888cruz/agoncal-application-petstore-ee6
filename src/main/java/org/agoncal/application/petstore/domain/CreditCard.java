@@ -9,6 +9,8 @@ import javax.validation.constraints.Size;
 import lombok.*;
 @Getters
 @setters
+@ToString
+@EqualsAndHashCode
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
@@ -46,43 +48,5 @@ public class CreditCard {
         this.creditCardNumber = creditCardNumber;
         this.creditCardType = creditCardType;
         this.creditCardExpDate = creditCardExpDate;
-    }
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-    
-
-    // ======================================
-    // =   Methods hash, equals, toString   =
-    // ======================================
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CreditCard)) return false;
-
-        CreditCard that = (CreditCard) o;
-
-        if (!creditCardNumber.equals(that.creditCardNumber)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return creditCardNumber.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("CreditCard");
-        sb.append("{creditCardNumber='").append(creditCardNumber).append('\'');
-        sb.append(", creditCardType=").append(creditCardType);
-        sb.append(", creditCardExpDate='").append(creditCardExpDate).append('\'');
-        sb.append('}');
-        return sb.toString();
     }
 }

@@ -16,6 +16,8 @@ import java.util.GregorianCalendar;
 import lombok.*;
 @Getters
 @setters
+@ToString
+@EqualsAndHashCode
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
@@ -135,50 +137,5 @@ public class Customer implements Serializable {
         // The password entered by the customer is not the same stored in database
         if (!pwd.equals(password))
             throw new ValidationException("Passwords don't match");
-    }
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-    
-
-    // ======================================
-    // =   Methods hash, equals, toString   =
-    // ======================================
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Customer)) return false;
-
-        Customer customer = (Customer) o;
-
-        if (!login.equals(customer.login)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return login.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Customer");
-        sb.append("{id=").append(id);
-        sb.append(", login='").append(login).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append(", firstname='").append(firstname).append('\'');
-        sb.append(", lastname='").append(lastname).append('\'');
-        sb.append(", telephone='").append(telephone).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", homeAddress=").append(homeAddress);
-        sb.append(", dateOfBirth=").append(dateOfBirth);
-        sb.append(", age=").append(age);
-        sb.append('}');
-        return sb.toString();
     }
 }

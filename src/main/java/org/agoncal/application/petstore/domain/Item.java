@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import lombok.*;
 @Getters
 @setters
+@ToString
+@EqualsAndHashCode
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
@@ -70,48 +72,5 @@ public class Item {
         this.imagePath = imagePath;
         this.product = product;
         this.description = description;
-    }
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-    
-
-    // ======================================
-    // =   Methods hash, equals, toString   =
-    // ======================================
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Item)) return false;
-
-        Item item = (Item) o;
-
-        if (!imagePath.equals(item.imagePath)) return false;
-        if (!name.equals(item.name)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + imagePath.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Item");
-        sb.append("{id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", unitCost=").append(unitCost).append('\'');
-        sb.append(", imagePath='").append(imagePath).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append('}');
-        return sb.toString();
     }
 }

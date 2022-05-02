@@ -12,6 +12,8 @@ import java.util.List;
 import lombok.*;
 @Getters
 @setters
+@ToString
+@EqualsAndHashCode
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
@@ -66,40 +68,4 @@ public class Category {
         this.description = description;
     }
 
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-   
-    // ======================================
-    // =   Methods hash, equals, toString   =
-    // ======================================
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Category)) return false;
-
-        Category category = (Category) o;
-
-        if (!name.equals(category.name)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return name.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Category");
-        sb.append("{id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
 }

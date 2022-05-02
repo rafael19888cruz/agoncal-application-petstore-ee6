@@ -7,6 +7,8 @@ import java.util.List;
 import lombok.*;
 @Getters
 @setters
+@ToString
+@EqualsAndHashCode
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
@@ -88,49 +90,5 @@ public class Order {
         }
 
         return total;
-    }
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
-    
-
-    // ======================================
-    // =   Methods hash, equals, toString   =
-    // ======================================
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-
-        Order order = (Order) o;
-
-        if (!customer.equals(order.customer)) return false;
-        if (orderDate != null && !orderDate.equals(order.orderDate)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = orderDate != null ? orderDate.hashCode() : 0;
-        result = 31 * result + customer.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Order");
-        sb.append("{id=").append(id);
-        sb.append(", orderDate=").append(orderDate);
-        sb.append(", customer=").append(customer);
-        sb.append(", orderLines=").append(orderLines);
-        sb.append(", deliveryAddress=").append(deliveryAddress);
-        sb.append(", creditCard=").append(creditCard);
-        sb.append('}');
-        return sb.toString();
     }
 }
