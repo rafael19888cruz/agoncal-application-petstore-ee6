@@ -1,7 +1,9 @@
 package org.agoncal.application.petstore.domain;
 
 import javax.persistence.*;
-
+import lombok.*;
+@Getters
+@setters
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
@@ -48,26 +50,7 @@ public class OrderLine {
     // =         Getters & setters          =
     // ======================================
 
-    public Long getId() {
-        return id;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
+    
     // ======================================
     // =   Methods hash, equals, toString   =
     // ======================================
